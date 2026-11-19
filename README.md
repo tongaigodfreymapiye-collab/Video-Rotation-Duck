@@ -12,7 +12,8 @@ The app has no build step or server requirement. GitHub Pages serves the files o
 
 ## Notes
 
-- WebM export uses the browser's `MediaRecorder` in real time. MP4, MOV, and AVI are converted locally with FFmpeg.wasm, which is loaded from jsDelivr when needed. Keep the page open while exporting.
-- FFmpeg.wasm has a documented 2 GB input-file limit. The app accepts files up to 6 GB, but for files above 2 GB choose WebM; non-WebM conversion is blocked. Large exports also need substantial device memory and processing time.
+- WebM export uses the browser's `MediaRecorder` in real time. The default **Compress export to stay under 2 GB** option sets a conservative bitrate from the video duration and records a smaller rotated video. Compression is an estimate, so extremely long videos or unusual browser encoders can differ from the target.
+- If supported, MP4 is recorded directly by the browser. Chrome supports the File System Access save picker, so the app can write recording chunks to a device location as they are produced. Other browsers show a manual download link after export.
+- MOV and AVI conversion uses FFmpeg.wasm, which has a documented 2 GB input-file limit. Large source files can still be exported as MP4 if the browser supports MP4 recording, or as WebM. Large exports need substantial device memory and processing time.
 - Browser codec support varies. Input playback depends on the codecs in the uploaded video. The first MP4/MOV/AVI export downloads the conversion engine from jsDelivr.
 - The 6 GB limit is checked locally in the page. No video upload is made to GitHub or another server.
