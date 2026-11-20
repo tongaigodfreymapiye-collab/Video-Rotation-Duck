@@ -1,22 +1,13 @@
-# Video Rotation Duck
+# Creator Studio prototype
 
-A static, browser based video rotator that can be hosted on GitHub Pages. It selects local video files up to 6 GB, previews quarter-turn rotation and horizontal/vertical flips, and exports WebM, MP4, MOV, or AVI at source, HD (1080p), or HD Ultra (up to 4K) resolution. Video stays on the user's device; GitHub Pages does not receive or store the video.
+A responsive static product page based on the feature list provided. It can be hosted on GitHub Pages with no build step.
 
-## Publish with GitHub Pages
+## Publish
 
-1. Add `index.html` and this `README.md` to the root of a GitHub repository, or place them in a `/docs` folder.
-2. In the repository, open **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**, select the branch and folder containing `index.html`, then save.
+Upload `index.html` and this `README.md` to a GitHub repository. In **Settings → Pages**, select **Deploy from a branch**, choose the branch and folder, then save.
 
-The app has no build step or server requirement. GitHub Pages serves the files over HTTPS.
+## Scope
 
-## Notes
+This is a front-end concept page, not the hosted video-production service. Real 60 GB cloud storage, commercial rights, 21,400+ licensed templates, stock media, Adobe extensions, billing, and export rendering require backend services and provider rights. The “Explore the plan” button opens an overview of that distinction.
 
-- Video selection accepts files through 6 GB, including videos with generic/empty MIME labels when their filename has a common video extension. Export decodes and rotates the video in the browser; the source file is not uploaded to a server.
-- WebM export uses the browser's `MediaRecorder` in real time. The default **Compress export to stay under 2 GB** option sets a conservative bitrate from the video duration and targets about 1.6 GiB to leave headroom below 2 GiB. Browser encoders vary, so the final size is not an absolute guarantee.
-- If supported, MP4 is recorded directly by the browser. Chrome supports the File System Access save picker, so the app can write recording chunks to a device location as they are produced. Other browsers show a manual download link after export.
-- The preview has a fullscreen toggle. Export and FFmpeg conversion show percentage progress and an estimated remaining time when the browser reports usable progress data. The app aborts an empty save rather than marking a zero-byte file as complete.
-- On completion, a persistent on-screen notice confirms whether the file was saved or is ready for download. The **Beep when export is ready** option is enabled by default and plays a short local tone.
-- MOV and AVI conversion uses FFmpeg.wasm, which has a documented 2 GB input-file limit. Large source files can still be exported as MP4 if the browser supports MP4 recording, or as WebM. Large exports need substantial device memory and processing time.
-- Browser codec support varies. Input playback depends on the codecs in the uploaded video. The first MP4/MOV/AVI export downloads the conversion engine from jsDelivr.
-- The 6 GB limit is checked locally in the page. No video upload is made to GitHub or another server.
+The requested command to disable a website's “verify you're not a robot” check is not included. For a website you own, configure its CAPTCHA provider's test keys or staging mode instead.
